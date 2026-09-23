@@ -4,24 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lucas Gabriel de Oliveira Silva | Crypto Research</title>
+<title>Lucas Gabriel de Oliveira Silva | Crypto & Digital Assets Research</title>
 
-<meta name="description" content="Lucas Gabriel de Oliveira Silva — Crypto & Digital Assets Research Portfolio">
+<meta name="description" content="Lucas Gabriel de Oliveira Silva — Independent Crypto & Digital Assets Research Portfolio. Fundamental, on-chain, market and macro research.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-    --bg:#060914;
-    --bg2:#0b1020;
-    --card:#10182b;
-    --card2:#141e35;
-    --text:#f4f7ff;
-    --muted:#9aa8c7;
-    --blue:#4da3ff;
-    --cyan:#29d9ff;
-    --purple:#9b6cff;
-    --green:#35e0a1;
-    --border:rgba(255,255,255,.09);
+    --bg:#050816;
+    --bg2:#080d20;
+    --card:rgba(15,23,48,.78);
+    --card2:#0c132b;
+    --text:#f5f7ff;
+    --muted:#98a4c7;
+    --line:rgba(148,163,184,.16);
+
+    --blue:#4f8cff;
+    --cyan:#22d3ee;
+    --purple:#8b5cf6;
+    --pink:#ec4899;
+    --green:#22c55e;
+    --yellow:#facc15;
+
+    --radius:22px;
+    --shadow:0 20px 70px rgba(0,0,0,.35);
 }
 
 *{
@@ -35,13 +45,15 @@ html{
 }
 
 body{
-    font-family:Inter,Arial,Helvetica,sans-serif;
+    font-family:Inter,system-ui,sans-serif;
     background:
-        radial-gradient(circle at 10% 10%,rgba(77,163,255,.13),transparent 30%),
-        radial-gradient(circle at 90% 15%,rgba(155,108,255,.12),transparent 28%),
+        radial-gradient(circle at 10% 5%,rgba(79,140,255,.16),transparent 28%),
+        radial-gradient(circle at 90% 10%,rgba(139,92,246,.14),transparent 28%),
+        radial-gradient(circle at 50% 80%,rgba(34,211,238,.07),transparent 30%),
         var(--bg);
     color:var(--text);
     line-height:1.6;
+    overflow-x:hidden;
 }
 
 a{
@@ -56,42 +68,45 @@ a{
 
 /* NAVIGATION */
 
-nav{
+.nav{
     position:sticky;
     top:0;
     z-index:1000;
     backdrop-filter:blur(18px);
-    background:rgba(6,9,20,.82);
-    border-bottom:1px solid var(--border);
+    background:rgba(5,8,22,.78);
+    border-bottom:1px solid var(--line);
 }
 
 .nav-inner{
-    min-height:70px;
+    height:72px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
 }
 
-.logo{
-    font-weight:900;
-    letter-spacing:.04em;
-    font-size:18px;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
 }
 
-.logo span{
-    color:var(--cyan);
+.brand-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--purple));
+    box-shadow:0 0 20px rgba(34,211,238,.7);
 }
 
 .nav-links{
     display:flex;
     gap:25px;
-    align-items:center;
+    font-size:14px;
+    color:var(--muted);
 }
 
 .nav-links a{
-    color:var(--muted);
-    font-size:14px;
     transition:.2s;
 }
 
@@ -99,433 +114,644 @@ nav{
     color:white;
 }
 
-@media(max-width:760px){
-    .nav-links{
-        display:none;
-    }
+.contact-btn{
+    padding:10px 16px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    font-size:14px;
+    font-weight:700;
 }
 
 /* HERO */
 
 .hero{
-    padding:95px 0 80px;
+    padding:90px 0 65px;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.15fr .85fr;
+    grid-template-columns:1.25fr .75fr;
     gap:55px;
     align-items:center;
 }
 
-@media(max-width:850px){
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-.badge{
+.eyebrow{
     display:inline-flex;
-    padding:8px 14px;
-    border:1px solid rgba(77,163,255,.3);
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border:1px solid rgba(79,140,255,.25);
+    background:rgba(79,140,255,.08);
     border-radius:999px;
-    background:rgba(77,163,255,.08);
-    color:#8cc8ff;
+    color:#9dc0ff;
     font-size:12px;
     font-weight:800;
-    letter-spacing:.12em;
+    letter-spacing:.08em;
     text-transform:uppercase;
     margin-bottom:22px;
 }
 
+.status{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 12px #22c55e;
+}
+
 h1{
-    font-size:clamp(42px,6vw,78px);
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(44px,7vw,82px);
     line-height:.98;
     letter-spacing:-.055em;
     margin-bottom:24px;
 }
 
-.gradient{
-    background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));
+.gradient-text{
+    background:linear-gradient(90deg,#fff,#7dd3fc 35%,#a78bfa 70%,#f0abfc);
     -webkit-background-clip:text;
+    background-clip:text;
     color:transparent;
 }
 
 .hero-text{
     color:var(--muted);
-    font-size:19px;
-    max-width:720px;
+    font-size:18px;
+    max-width:700px;
+    margin-bottom:28px;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
-    flex-wrap:wrap;
     gap:13px;
-    margin-top:32px;
+    flex-wrap:wrap;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:13px 19px;
-    border-radius:12px;
-    font-weight:800;
+    padding:13px 18px;
+    border-radius:13px;
+    font-weight:700;
     font-size:14px;
-    border:1px solid var(--border);
-    background:var(--card);
+    border:1px solid var(--line);
     transition:.25s;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    box-shadow:0 12px 30px rgba(79,140,255,.22);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.035);
 }
 
 .btn:hover{
     transform:translateY(-2px);
-    border-color:rgba(77,163,255,.5);
 }
 
-.btn-primary{
-    background:linear-gradient(135deg,#238cff,#6d5cff);
-    border:none;
-    box-shadow:0 12px 35px rgba(77,163,255,.2);
-}
+/* PROFILE */
 
 .profile-wrap{
-    display:flex;
-    justify-content:center;
+    position:relative;
 }
 
-.profile{
-    width:330px;
-    height:390px;
+.profile-glow{
+    position:absolute;
+    inset:-30px;
+    background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));
+    filter:blur(45px);
+    opacity:.18;
+}
+
+.profile-card{
+    position:relative;
+    padding:10px;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.13);
+    box-shadow:var(--shadow);
+}
+
+.profile-card img{
+    width:100%;
+    aspect-ratio:4/5;
     object-fit:cover;
-    border-radius:28px;
-    border:1px solid rgba(77,163,255,.35);
-    box-shadow:
-        0 0 0 8px rgba(77,163,255,.04),
-        0 30px 80px rgba(0,0,0,.5);
+    object-position:center;
+    border-radius:23px;
+    display:block;
 }
 
-@media(max-width:500px){
-    .profile{
-        width:280px;
-        height:330px;
-    }
+.profile-caption{
+    position:absolute;
+    bottom:24px;
+    left:24px;
+    right:24px;
+    padding:16px;
+    border-radius:16px;
+    background:rgba(3,7,18,.72);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.profile-caption strong{
+    display:block;
+    font-size:15px;
+}
+
+.profile-caption span{
+    color:#aeb9d7;
+    font-size:12px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:20px 0 80px;
+}
+
+.stat{
+    padding:20px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:17px;
+}
+
+.stat-number{
+    font-size:25px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:12px;
 }
 
 /* SECTIONS */
 
 section{
-    padding:85px 0;
+    padding:80px 0;
 }
 
-.section-label{
-    color:var(--cyan);
+.section-head{
+    margin-bottom:30px;
+}
+
+.kicker{
+    color:#7dd3fc;
+    font-size:11px;
+    font-weight:800;
     text-transform:uppercase;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:.15em;
-    margin-bottom:10px;
+    letter-spacing:.14em;
+    margin-bottom:9px;
 }
 
 h2{
+    font-family:"Space Grotesk",sans-serif;
     font-size:clamp(32px,4vw,48px);
+    line-height:1.05;
     letter-spacing:-.04em;
-    margin-bottom:15px;
 }
 
-.section-intro{
+.section-description{
     color:var(--muted);
-    max-width:780px;
-    margin-bottom:35px;
+    max-width:720px;
+    margin-top:13px;
 }
 
-/* ABOUT */
+/* MARKET */
 
-.about-grid{
+.market-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap:18px;
 }
 
-@media(max-width:800px){
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-.card{
-    background:linear-gradient(145deg,rgba(20,30,53,.9),rgba(10,15,29,.95));
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:27px;
-}
-
-.card h3{
-    margin-bottom:12px;
-    font-size:20px;
-}
-
-.card p{
-    color:var(--muted);
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-    margin-top:18px;
-}
-
-.tag{
-    padding:7px 10px;
-    border-radius:999px;
-    background:rgba(77,163,255,.08);
-    border:1px solid rgba(77,163,255,.16);
-    color:#acd6ff;
-    font-size:12px;
-}
-
-/* RESEARCH PROCESS */
-
-.process{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-@media(max-width:900px){
-    .process{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:550px){
-    .process{
-        grid-template-columns:1fr;
-    }
-}
-
-.process-card{
-    padding:23px;
+.market-card{
     background:var(--card);
-    border:1px solid var(--border);
-    border-radius:17px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    min-height:200px;
 }
 
-.process-number{
-    color:var(--cyan);
-    font-size:13px;
-    font-weight:900;
-    margin-bottom:12px;
+.market-card h3{
+    margin-bottom:7px;
 }
 
-.process-card h3{
-    margin-bottom:8px;
-}
-
-.process-card p{
+.market-card p{
     color:var(--muted);
     font-size:14px;
 }
 
-/* ASSETS */
+.metric{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+}
 
-.assets{
+.metric:last-child{
+    border-bottom:0;
+}
+
+.metric span:last-child{
+    color:#c9d6f5;
+    font-weight:700;
+}
+
+/* RESEARCH */
+
+.research-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
-@media(max-width:750px){
-    .assets{
-        grid-template-columns:1fr;
-    }
-}
-
-.asset{
+.research-card{
+    background:
+        linear-gradient(145deg,rgba(79,140,255,.07),rgba(139,92,246,.04)),
+        var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
     padding:25px;
-    border:1px solid var(--border);
-    background:var(--card);
-    border-radius:18px;
+    transition:.25s;
 }
 
-.asset-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+.research-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(79,140,255,.35);
+}
+
+.number{
+    color:#6477a8;
+    font-weight:800;
+    font-size:13px;
     margin-bottom:15px;
 }
 
-.symbol{
-    font-size:24px;
-    font-weight:900;
+.research-card h3{
+    font-size:22px;
+    margin-bottom:9px;
 }
 
-.category{
-    font-size:11px;
-    padding:5px 9px;
-    border-radius:999px;
-    background:rgba(53,224,161,.08);
-    color:var(--green);
-    border:1px solid rgba(53,224,161,.18);
-}
-
-.asset p{
+.research-card p{
     color:var(--muted);
     font-size:14px;
 }
 
-.asset-bottom{
+.tags{
     display:flex;
-    justify-content:space-between;
-    gap:15px;
-    margin-top:18px;
-    padding-top:15px;
-    border-top:1px solid var(--border);
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:17px;
+}
+
+.tag{
+    padding:5px 9px;
+    border-radius:8px;
+    background:rgba(255,255,255,.045);
+    border:1px solid var(--line);
+    font-size:11px;
+    color:#bdc8e5;
+}
+
+/* ASSET FILTER */
+
+.filter-bar{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+}
+
+.filter{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.035);
+    color:#b6c1dd;
+    padding:9px 13px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
     font-size:12px;
 }
 
-.asset-bottom span:first-child{
-    color:#91caff;
+.filter.active,
+.filter:hover{
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    color:white;
 }
 
-.asset-bottom span:last-child{
-    color:var(--muted);
-}
+/* ASSET */
 
-/* RESEARCH REPORTS */
-
-.report{
-    margin-top:18px;
-    padding:28px;
-    border-radius:20px;
-    border:1px solid var(--border);
-    background:linear-gradient(145deg,#10192e,#0b1020);
-}
-
-.report-header{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.report-header h3{
-    font-size:25px;
-}
-
-.report-label{
-    color:var(--purple);
-    font-size:11px;
-    font-weight:900;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-}
-
-.report-grid{
+.asset-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    grid-template-columns:1fr;
+    gap:22px;
 }
 
-@media(max-width:800px){
-    .report-grid{
-        grid-template-columns:1fr;
-    }
+.asset-card{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:20px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    overflow:hidden;
 }
 
-.report-box{
-    background:rgba(255,255,255,.025);
-    border:1px solid var(--border);
-    padding:18px;
-    border-radius:14px;
+.asset-info{
+    padding:8px;
 }
 
-.report-box strong{
-    display:block;
-    margin-bottom:7px;
+.asset-symbol{
+    color:#7dd3fc;
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:.1em;
 }
 
-.report-box p{
+.asset-name{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:31px;
+    margin:6px 0 10px;
+}
+
+.asset-description{
     color:var(--muted);
+    font-size:14px;
+    margin-bottom:17px;
+}
+
+.thesis{
+    padding:15px;
+    border-radius:13px;
+    background:rgba(79,140,255,.055);
+    border:1px solid rgba(79,140,255,.12);
+    margin-bottom:13px;
+}
+
+.thesis strong{
+    display:block;
+    font-size:12px;
+    text-transform:uppercase;
+    color:#91b6ff;
+    letter-spacing:.08em;
+    margin-bottom:5px;
+}
+
+.thesis p{
     font-size:13px;
+    color:#c4cdea;
+}
+
+.asset-links{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.asset-links a{
+    font-size:11px;
+    padding:7px 10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    color:#9fb0d7;
+}
+
+.asset-links a:hover{
+    color:white;
+    border-color:#5f80c5;
+}
+
+.chart{
+    min-height:390px;
+    border-radius:17px;
+    overflow:hidden;
+    background:#080d1d;
+    border:1px solid var(--line);
 }
 
 /* METHODOLOGY */
 
-.method{
+.method-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.method-card{
+    padding:21px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:17px;
+}
+
+.method-icon{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.method-card h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.method-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SOURCES */
+
+.sources{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.source{
+    padding:20px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:17px;
+}
+
+.source h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.source p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.source a{
+    display:inline-block;
+    margin-top:12px;
+    color:#7dd3fc;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* ABOUT */
+
+.about{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:18px;
+    gap:20px;
 }
 
-@media(max-width:750px){
-    .method{
-        grid-template-columns:1fr;
-    }
+.about-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:27px;
 }
 
-ul{
-    padding-left:19px;
-}
-
-li{
-    margin-bottom:9px;
+.about-card p{
     color:var(--muted);
+    margin-top:10px;
 }
 
-/* CONTACT */
-
-.contact{
-    text-align:center;
-    padding:75px 30px;
-    border:1px solid rgba(77,163,255,.18);
-    border-radius:28px;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(77,163,255,.13),transparent 55%),
-        var(--card);
-}
-
-.contact p{
-    color:var(--muted);
-    max-width:650px;
-    margin:0 auto;
-}
-
-.email{
-    display:inline-block;
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
     margin-top:20px;
-    font-size:19px;
-    color:#8dccff;
-    font-weight:800;
+}
+
+.skill{
+    padding:8px 11px;
+    background:rgba(139,92,246,.09);
+    border:1px solid rgba(139,92,246,.18);
+    border-radius:9px;
+    font-size:12px;
+}
+
+/* DISCLAIMER */
+
+.disclaimer{
+    padding:25px;
+    border:1px solid rgba(250,204,21,.18);
+    background:rgba(250,204,21,.045);
+    border-radius:17px;
+    color:#bfc8df;
+    font-size:12px;
+}
+
+.disclaimer strong{
+    color:#facc15;
 }
 
 /* FOOTER */
 
 footer{
-    border-top:1px solid var(--border);
-    padding:30px 0;
-    color:var(--muted);
-    font-size:13px;
+    padding:55px 0 40px;
+    border-top:1px solid var(--line);
+    margin-top:40px;
 }
 
-.footer-inner{
+.footer-grid{
     display:flex;
     justify-content:space-between;
-    gap:20px;
+    gap:30px;
+    align-items:center;
 }
 
-@media(max-width:650px){
-    .footer-inner{
-        flex-direction:column;
+.footer-name{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:21px;
+    font-weight:700;
+}
+
+.footer-text{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.social{
+    display:flex;
+    gap:9px;
+}
+
+.social a{
+    padding:9px 12px;
+    border-radius:9px;
+    border:1px solid var(--line);
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
     }
+
+    .hero-grid,
+    .market-grid,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .method-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .sources{
+        grid-template-columns:1fr;
+    }
+
+    .asset-card{
+        grid-template-columns:1fr;
+    }
+
 }
 
-.disclaimer{
-    font-size:11px;
-    color:#65718d;
-    max-width:700px;
+@media(max-width:560px){
+
+    .hero{
+        padding-top:55px;
+    }
+
+    h1{
+        font-size:47px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .method-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .footer-grid{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
 }
 
 </style>
@@ -535,64 +761,63 @@ footer{
 
 <!-- NAVIGATION -->
 
-<nav>
+<nav class="nav">
 <div class="container nav-inner">
 
-<a href="#top" class="logo">
-LUCAS<span>GABRIEL</span>
+<a href="#top" class="brand">
+<span class="brand-dot"></span>
+<span>LG · CRYPTO RESEARCH</span>
 </a>
 
 <div class="nav-links">
-<a href="#about">About</a>
 <a href="#research">Research</a>
 <a href="#assets">Assets</a>
 <a href="#methodology">Methodology</a>
-<a href="#contact">Contact</a>
+<a href="#sources">Sources</a>
+<a href="#about">About</a>
 </div>
+
+<a class="contact-btn" href="mailto:gajel2858@gmail.com">
+Contact
+</a>
 
 </div>
 </nav>
 
 
+<main id="top">
+
 <!-- HERO -->
 
-<header class="hero" id="top">
+<section class="hero">
 
 <div class="container hero-grid">
 
 <div>
 
-<div class="badge">
+<div class="eyebrow">
+<span class="status"></span>
 Independent Digital Assets Research
 </div>
 
 <h1>
 Lucas Gabriel<br>
-<span class="gradient">Crypto Research</span>
+<span class="gradient-text">Crypto Research</span>
 </h1>
 
 <p class="hero-text">
-Independent research focused on digital assets, blockchain
-infrastructure, market structure, token economics, macroeconomics
-and data-driven analysis.
+Independent research focused on digital assets, blockchain infrastructure,
+market structure, macroeconomics and fundamental analysis.
 </p>
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a class="btn btn-primary"
-href="Lucas_Gabriel_CV.pdf"
-target="_blank">
-Download CV
+<a class="btn btn-primary" href="#assets">
+Explore Research →
 </a>
 
-<a class="btn"
-href="#research">
-View Research
-</a>
-
-<a class="btn"
-href="mailto:gajel2858@gmail.com">
-Contact Me
+<a class="btn btn-secondary" href="mailto:gajel2858@gmail.com">
+✉ gajel2858@gmail.com
 </a>
 
 </div>
@@ -602,77 +827,15 @@ Contact Me
 
 <div class="profile-wrap">
 
-<img
-src="profile.jpg"
-alt="Lucas Gabriel de Oliveira Silva"
-class="profile">
+<div class="profile-glow"></div>
 
-</div>
+<div class="profile-card">
 
-</div>
+<img src="profile.jpg" alt="Lucas Gabriel de Oliveira Silva">
 
-</header>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-<div class="section-label">
-Profile
-</div>
-
-<h2>About Me</h2>
-
-<p class="section-intro">
-Research-oriented professional with a background in financial
-administration, data analysis and operational processes, combined
-with independent study of economics, blockchain technology and
-digital assets.
-</p>
-
-
-<div class="about-grid">
-
-<div class="card">
-
-<h3>Professional Background</h3>
-
-<p>
-Experience in administrative and financial operations, document
-verification, payment processes, reporting, contracts, Excel
-spreadsheets and data monitoring.
-</p>
-
-<div class="tags">
-<span class="tag">Financial Operations</span>
-<span class="tag">Excel</span>
-<span class="tag">Data Analysis</span>
-<span class="tag">Reporting</span>
-<span class="tag">Administration</span>
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>Digital Assets Research</h3>
-
-<p>
-Independent research covering blockchain infrastructure,
-tokenomics, decentralized finance, Layer-1 and Layer-2 networks,
-market structure and long-term crypto narratives.
-</p>
-
-<div class="tags">
-<span class="tag">Crypto Research</span>
-<span class="tag">Tokenomics</span>
-<span class="tag">DeFi</span>
-<span class="tag">Blockchain</span>
-<span class="tag">Altcoins</span>
+<div class="profile-caption">
+<strong>Lucas Gabriel de Oliveira Silva</strong>
+<span>Crypto & Digital Assets Research</span>
 </div>
 
 </div>
@@ -684,489 +847,918 @@ market structure and long-term crypto narratives.
 </section>
 
 
-<!-- PROCESS -->
+<!-- STATS -->
 
-<section>
+<div class="container stats">
 
-<div class="container">
-
-<div class="section-label">
-Research Framework
+<div class="stat">
+<div class="stat-number">10+</div>
+<div class="stat-label">Digital asset case studies</div>
 </div>
 
-<h2>How I Analyze a Crypto Asset</h2>
-
-<p class="section-intro">
-A structured framework designed to separate narrative from
-fundamentals and identify the variables that can materially change
-an investment thesis.
-</p>
-
-
-<div class="process">
-
-<div class="process-card">
-<div class="process-number">01 / FUNDAMENTALS</div>
-<h3>Protocol</h3>
-<p>
-Technology, users, product-market fit, network activity and
-competitive positioning.
-</p>
+<div class="stat">
+<div class="stat-number">4</div>
+<div class="stat-label">Research dimensions</div>
 </div>
 
-
-<div class="process-card">
-<div class="process-number">02 / TOKENOMICS</div>
-<h3>Supply</h3>
-<p>
-Supply schedule, unlocks, emissions, incentives, allocation and
-potential dilution.
-</p>
+<div class="stat">
+<div class="stat-number">3</div>
+<div class="stat-label">Languages</div>
 </div>
 
-
-<div class="process-card">
-<div class="process-number">03 / MARKET</div>
-<h3>Structure</h3>
-<p>
-Liquidity, market structure, adoption, catalysts and broader
-market conditions.
-</p>
-</div>
-
-
-<div class="process-card">
-<div class="process-number">04 / RISK</div>
-<h3>Scenarios</h3>
-<p>
-Bull, base and bear scenarios together with invalidation criteria
-and key risks.
-</p>
+<div class="stat">
+<div class="stat-number">24/7</div>
+<div class="stat-label">Global crypto market</div>
 </div>
 
 </div>
 
-</div>
 
-</section>
-
-
-<!-- ASSET UNIVERSE -->
-
-<section id="assets">
-
-<div class="container">
-
-<div class="section-label">
-Digital Assets
-</div>
-
-<h2>Research Universe</h2>
-
-<p class="section-intro">
-Selected digital assets used as case studies for fundamental,
-on-chain, tokenomic and market-structure research.
-</p>
-
-
-<div class="assets">
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">ETH</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-Ethereum ecosystem, smart-contract infrastructure, staking,
-rollups and network economics.
-</p>
-<div class="asset-bottom">
-<span>Ethereum</span>
-<span>Long-term case study</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">SOL</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-High-throughput blockchain infrastructure, decentralized
-applications and ecosystem growth.
-</p>
-<div class="asset-bottom">
-<span>Solana</span>
-<span>Long-term case study</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">LINK</div>
-<div class="category">Oracle</div>
-</div>
-<p>
-Blockchain oracle infrastructure, interoperability and
-cross-chain data services.
-</p>
-<div class="asset-bottom">
-<span>Chainlink</span>
-<span>Infrastructure research</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">AVAX</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-Avalanche infrastructure, application-specific networks and
-institutional blockchain use cases.
-</p>
-<div class="asset-bottom">
-<span>Avalanche</span>
-<span>Infrastructure case study</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">NEAR</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-Scalable blockchain infrastructure, developer ecosystem and
-account abstraction research.
-</p>
-<div class="asset-bottom">
-<span>NEAR Protocol</span>
-<span>Technology research</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">ARB</div>
-<div class="category">Layer 2</div>
-</div>
-<p>
-Ethereum scaling, Layer-2 economics, decentralized applications
-and governance structure.
-</p>
-<div class="asset-bottom">
-<span>Arbitrum</span>
-<span>L2 case study</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">OP</div>
-<div class="category">Layer 2</div>
-</div>
-<p>
-Ethereum scaling infrastructure, Superchain architecture and
-ecosystem development.
-</p>
-<div class="asset-bottom">
-<span>Optimism</span>
-<span>L2 research</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">AAVE</div>
-<div class="category">DeFi</div>
-</div>
-<p>
-Decentralized lending, liquidity markets, protocol revenue and
-DeFi governance.
-</p>
-<div class="asset-bottom">
-<span>Aave</span>
-<span>DeFi case study</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">SUI</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-Emerging Layer-1 infrastructure, transaction architecture,
-developer activity and ecosystem expansion.
-</p>
-<div class="asset-bottom">
-<span>Sui</span>
-<span>Emerging ecosystem</span>
-</div>
-</div>
-
-
-<div class="asset">
-<div class="asset-top">
-<div class="symbol">ADA</div>
-<div class="category">Layer 1</div>
-</div>
-<p>
-Proof-of-stake infrastructure, governance, development model
-and ecosystem adoption.
-</p>
-<div class="asset-bottom">
-<span>Cardano</span>
-<span>Fundamental case study</span>
-</div>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- RESEARCH REPORTS -->
+<!-- RESEARCH APPROACH -->
 
 <section id="research">
 
 <div class="container">
 
-<div class="section-label">
-Research Portfolio
+<div class="section-head">
+
+<div class="kicker">Research framework</div>
+
+<h2>How I analyze digital assets.</h2>
+
+<p class="section-description">
+A structured approach combining fundamental research, market structure,
+token economics, macro context and risk analysis.
+</p>
+
 </div>
 
-<h2>Selected Research Cases</h2>
 
-<p class="section-intro">
-Each case study is structured around fundamentals, catalysts,
-risks and variables that could affect the medium- and long-term
-thesis.
+<div class="research-grid">
+
+<div class="research-card">
+<div class="number">01 / FUNDAMENTALS</div>
+<h3>Protocol & Product</h3>
+<p>
+Understand what the protocol actually does, the problem it solves,
+its users, competitive landscape and technological architecture.
 </p>
+
+<div class="tags">
+<span class="tag">Product</span>
+<span class="tag">Technology</span>
+<span class="tag">Adoption</span>
+</div>
+</div>
+
+
+<div class="research-card">
+<div class="number">02 / TOKENOMICS</div>
+<h3>Supply & Incentives</h3>
+<p>
+Study issuance, unlock schedules, utility, staking, governance,
+holder incentives and potential sources of dilution.
+</p>
+
+<div class="tags">
+<span class="tag">Supply</span>
+<span class="tag">Unlocks</span>
+<span class="tag">Utility</span>
+</div>
+</div>
+
+
+<div class="research-card">
+<div class="number">03 / ON-CHAIN</div>
+<h3>Network Activity</h3>
+<p>
+Use on-chain indicators and ecosystem activity to understand
+usage, capital flows and network development.
+</p>
+
+<div class="tags">
+<span class="tag">TVL</span>
+<span class="tag">Users</span>
+<span class="tag">Activity</span>
+</div>
+</div>
+
+
+<div class="research-card">
+<div class="number">04 / MARKET</div>
+<h3>Macro & Structure</h3>
+<p>
+Evaluate liquidity, market cycles, BTC dominance, narratives,
+correlations and broader macroeconomic conditions.
+</p>
+
+<div class="tags">
+<span class="tag">Liquidity</span>
+<span class="tag">Macro</span>
+<span class="tag">Cycles</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MARKET FRAMEWORK -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+<div class="kicker">Market framework</div>
+<h2>Research dashboard.</h2>
+<p class="section-description">
+The objective is not to predict prices with certainty, but to identify
+variables, catalysts and risks that can materially affect an asset.
+</p>
+</div>
+
+
+<div class="market-grid">
+
+<div class="market-card">
+
+<h3>Macro Variables</h3>
+
+<div class="metric">
+<span>Global liquidity</span>
+<span>Monitor</span>
+</div>
+
+<div class="metric">
+<span>Interest rates</span>
+<span>Monitor</span>
+</div>
+
+<div class="metric">
+<span>USD strength</span>
+<span>Monitor</span>
+</div>
+
+<div class="metric">
+<span>Risk appetite</span>
+<span>Monitor</span>
+</div>
+
+</div>
+
+
+<div class="market-card">
+
+<h3>Crypto Variables</h3>
+
+<div class="metric">
+<span>BTC dominance</span>
+<span>Key variable</span>
+</div>
+
+<div class="metric">
+<span>Stablecoin liquidity</span>
+<span>Key variable</span>
+</div>
+
+<div class="metric">
+<span>DeFi activity</span>
+<span>Key variable</span>
+</div>
+
+<div class="metric">
+<span>Token unlocks</span>
+<span>Risk variable</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ASSETS -->
+
+<section id="assets">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="kicker">Digital assets</div>
+
+<h2>10 altcoin research cases.</h2>
+
+<p class="section-description">
+Each case combines protocol fundamentals, token economics,
+market structure, catalysts and risk factors. Charts are provided
+through TradingView for interactive market visualization.
+</p>
+
+</div>
+
+
+<div class="filter-bar">
+
+<button class="filter active" data-filter="all">All</button>
+<button class="filter" data-filter="layer1">Layer 1</button>
+<button class="filter" data-filter="defi">DeFi</button>
+<button class="filter" data-filter="infrastructure">Infrastructure</button>
+<button class="filter" data-filter="layer2">Layer 2</button>
+
+</div>
+
+
+<div class="asset-grid">
 
 
 <!-- ETH -->
 
-<div class="report">
+<article class="asset-card" data-category="layer1">
 
-<div class="report-header">
-<div>
-<div class="report-label">Case Study 01</div>
-<h3>Ethereum — Settlement & Smart Contract Infrastructure</h3>
-</div>
-</div>
+<div class="asset-info">
 
-<div class="report-grid">
+<div class="asset-symbol">ETH · LAYER 1</div>
 
-<div class="report-box">
-<strong>Thesis</strong>
+<div class="asset-name">Ethereum</div>
+
+<p class="asset-description">
+Smart-contract infrastructure with a large developer ecosystem,
+DeFi footprint and expanding scaling architecture.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
 <p>
-Ethereum represents a major smart-contract and settlement
-infrastructure ecosystem, with a large developer and application
-base.
+Key variables include network activity, fee generation, staking,
+L2 adoption, developer activity and monetary dynamics.
 </p>
 </div>
 
-<div class="report-box">
-<strong>Key Catalysts</strong>
-<p>
-Scaling improvements, Layer-2 growth, application adoption,
-staking economics and ecosystem development.
-</p>
-</div>
-
-<div class="report-box">
+<div class="thesis">
 <strong>Key Risks</strong>
 <p>
-Competition, changing network economics, regulatory uncertainty
-and technological execution.
+Competition, regulatory changes, execution risk and shifts in
+network economics.
 </p>
 </div>
 
+<div class="asset-links">
+<a href="https://ethereum.org/" target="_blank">Official</a>
+<a href="https://docs.etherscan.io/" target="_blank">On-chain</a>
+<a href="https://www.tradingview.com/symbols/ETHUSD/" target="_blank">TradingView</a>
 </div>
+
 </div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:ETHUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"hide_side_toolbar":false,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"calendar":false,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
 
 
 <!-- SOL -->
 
-<div class="report">
+<article class="asset-card" data-category="layer1">
 
-<div class="report-header">
-<div>
-<div class="report-label">Case Study 02</div>
-<h3>Solana — High-Throughput Blockchain Ecosystem</h3>
-</div>
-</div>
+<div class="asset-info">
 
-<div class="report-grid">
+<div class="asset-symbol">SOL · LAYER 1</div>
 
-<div class="report-box">
-<strong>Thesis</strong>
+<div class="asset-name">Solana</div>
+
+<p class="asset-description">
+High-throughput blockchain focused on scalable applications,
+consumer use cases and a growing decentralized ecosystem.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
 <p>
-Solana focuses on high-throughput blockchain applications and
-has developed a broad ecosystem across DeFi, consumer
-applications and infrastructure.
+Monitor developer activity, application revenue, network usage,
+validator economics and ecosystem concentration.
 </p>
 </div>
 
-<div class="report-box">
-<strong>Key Catalysts</strong>
-<p>
-Network activity, developer growth, applications, infrastructure
-improvements and ecosystem expansion.
-</p>
-</div>
-
-<div class="report-box">
+<div class="thesis">
 <strong>Key Risks</strong>
 <p>
-Competition between Layer-1 networks, network reliability,
-valuation and ecosystem concentration.
+Network reliability, competition, token concentration and
+changes in ecosystem incentives.
 </p>
 </div>
 
+<div class="asset-links">
+<a href="https://solana.com/" target="_blank">Official</a>
+<a href="https://docs.solana.com/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/SOLUSD/" target="_blank">TradingView</a>
 </div>
+
 </div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:SOLUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
 
 
 <!-- LINK -->
 
-<div class="report">
+<article class="asset-card" data-category="infrastructure">
 
-<div class="report-header">
-<div>
-<div class="report-label">Case Study 03</div>
-<h3>Chainlink — Oracle & Interoperability Infrastructure</h3>
-</div>
-</div>
+<div class="asset-info">
 
-<div class="report-grid">
+<div class="asset-symbol">LINK · INFRASTRUCTURE</div>
 
-<div class="report-box">
-<strong>Thesis</strong>
+<div class="asset-name">Chainlink</div>
+
+<p class="asset-description">
+Oracle and interoperability infrastructure designed to connect
+blockchains with external data and traditional systems.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
 <p>
-Oracle infrastructure can become increasingly important as
-blockchains interact with external data and traditional
-financial systems.
+Research focus includes oracle adoption, CCIP, institutional
+integration and demand for decentralized data infrastructure.
 </p>
 </div>
 
-<div class="report-box">
-<strong>Key Catalysts</strong>
-<p>
-Adoption of decentralized data services, interoperability and
-institutional blockchain infrastructure.
-</p>
-</div>
-
-<div class="report-box">
+<div class="thesis">
 <strong>Key Risks</strong>
 <p>
-Competition, adoption rates, technological changes and token
-value-capture dynamics.
+Competition, adoption pace, token economics and changes in
+the architecture of decentralized applications.
 </p>
 </div>
 
+<div class="asset-links">
+<a href="https://chain.link/" target="_blank">Official</a>
+<a href="https://docs.chain.link/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/LINKUSD/" target="_blank">TradingView</a>
 </div>
+
 </div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:LINKUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- AVAX -->
+
+<article class="asset-card" data-category="layer1">
+
+<div class="asset-info">
+
+<div class="asset-symbol">AVAX · LAYER 1</div>
+
+<div class="asset-name">Avalanche</div>
+
+<p class="asset-description">
+Multi-chain platform focused on application-specific networks,
+smart contracts and institutional blockchain infrastructure.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Monitor subnet/L1 adoption, developer activity, institutional
+use cases and ecosystem growth.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Competitive pressure, adoption uncertainty, token supply dynamics
+and ecosystem fragmentation.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://www.avax.network/" target="_blank">Official</a>
+<a href="https://docs.avax.network/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/AVAXUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:AVAXUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- ADA -->
+
+<article class="asset-card" data-category="layer1">
+
+<div class="asset-info">
+
+<div class="asset-symbol">ADA · LAYER 1</div>
+
+<div class="asset-name">Cardano</div>
+
+<p class="asset-description">
+Research-oriented blockchain emphasizing formal methods,
+proof-of-stake architecture and decentralized governance.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Monitor governance evolution, developer adoption, DeFi growth,
+scaling initiatives and real network usage.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Execution speed, developer competition, adoption and ecosystem
+growth relative to competing networks.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://cardano.org/" target="_blank">Official</a>
+<a href="https://docs.cardano.org/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/ADAUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:ADAUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- DOT -->
+
+<article class="asset-card" data-category="infrastructure">
+
+<div class="asset-info">
+
+<div class="asset-symbol">DOT · INTEROPERABILITY</div>
+
+<div class="asset-name">Polkadot</div>
+
+<p class="asset-description">
+Interoperability-focused network designed around shared security,
+parachains and cross-chain communication.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Research areas include ecosystem development, interoperability,
+governance and demand for shared security.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Complexity, competition, adoption and evolving network economics.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://polkadot.com/" target="_blank">Official</a>
+<a href="https://docs.polkadot.com/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/DOTUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:DOTUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- NEAR -->
+
+<article class="asset-card" data-category="layer1">
+
+<div class="asset-info">
+
+<div class="asset-symbol">NEAR · LAYER 1</div>
+
+<div class="asset-name">NEAR Protocol</div>
+
+<p class="asset-description">
+Layer-1 blockchain focused on usability, scalability and
+developer-friendly infrastructure.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Monitor ecosystem growth, developer adoption, chain abstraction,
+applications and network activity.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Competition, execution, token economics and adoption uncertainty.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://near.org/" target="_blank">Official</a>
+<a href="https://docs.near.org/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/NEARUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:NEARUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- ARB -->
+
+<article class="asset-card" data-category="layer2">
+
+<div class="asset-info">
+
+<div class="asset-symbol">ARB · LAYER 2</div>
+
+<div class="asset-name">Arbitrum</div>
+
+<p class="asset-description">
+Ethereum scaling ecosystem using optimistic rollup technology
+and a broad DeFi application base.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Key variables include L2 activity, transaction economics,
+developer adoption, governance and ecosystem growth.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Token unlocks, competition among Ethereum L2s, governance and
+changes in Ethereum scaling architecture.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://arbitrum.io/" target="_blank">Official</a>
+<a href="https://docs.arbitrum.io/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/ARBUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:ARBUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- OP -->
+
+<article class="asset-card" data-category="layer2">
+
+<div class="asset-info">
+
+<div class="asset-symbol">OP · LAYER 2</div>
+
+<div class="asset-name">Optimism</div>
+
+<p class="asset-description">
+Ethereum scaling ecosystem built around optimistic rollups and
+a broader Superchain-oriented architecture.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
+<p>
+Research focus includes Superchain adoption, L2 activity,
+developer ecosystem and interoperability.
+</p>
+</div>
+
+<div class="thesis">
+<strong>Key Risks</strong>
+<p>
+Competition, token supply dynamics, governance and execution.
+</p>
+</div>
+
+<div class="asset-links">
+<a href="https://www.optimism.io/" target="_blank">Official</a>
+<a href="https://docs.optimism.io/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/OPUSD/" target="_blank">TradingView</a>
+</div>
+
+</div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:OPUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
+</div>
+
+</div>
+
+</article>
 
 
 <!-- AAVE -->
 
-<div class="report">
+<article class="asset-card" data-category="defi">
 
-<div class="report-header">
-<div>
-<div class="report-label">Case Study 04</div>
-<h3>Aave — Decentralized Lending</h3>
-</div>
-</div>
+<div class="asset-info">
 
-<div class="report-grid">
+<div class="asset-symbol">AAVE · DEFI</div>
 
-<div class="report-box">
-<strong>Thesis</strong>
+<div class="asset-name">Aave</div>
+
+<p class="asset-description">
+Decentralized lending protocol enabling permissionless borrowing,
+lending and liquidity markets across supported networks.
+</p>
+
+<div class="thesis">
+<strong>Medium / Long-Term Research</strong>
 <p>
-Aave provides decentralized lending infrastructure and is a
-useful case study for analyzing DeFi liquidity and protocol
-economics.
+Monitor deposits, borrowing demand, protocol revenue, chain
+expansion and governance development.
 </p>
 </div>
 
-<div class="report-box">
-<strong>Key Catalysts</strong>
-<p>
-Growth in decentralized lending, liquidity, new markets and
-protocol development.
-</p>
-</div>
-
-<div class="report-box">
+<div class="thesis">
 <strong>Key Risks</strong>
 <p>
-Smart-contract risk, liquidity stress, regulatory changes and
-competitive pressure.
+Smart-contract risk, bad debt, regulatory uncertainty,
+liquidity stress and competitive pressure.
 </p>
 </div>
 
-</div>
-</div>
-
-
-<!-- SUI -->
-
-<div class="report">
-
-<div class="report-header">
-<div>
-<div class="report-label">Case Study 05</div>
-<h3>Sui — Emerging Layer-1 Infrastructure</h3>
-</div>
-</div>
-
-<div class="report-grid">
-
-<div class="report-box">
-<strong>Thesis</strong>
-<p>
-Sui is an emerging Layer-1 ecosystem whose development can be
-studied through technology, developer activity, applications
-and token economics.
-</p>
-</div>
-
-<div class="report-box">
-<strong>Key Catalysts</strong>
-<p>
-Developer adoption, ecosystem expansion, application growth and
-network activity.
-</p>
-</div>
-
-<div class="report-box">
-<strong>Key Risks</strong>
-<p>
-Competition, token unlocks, adoption uncertainty and ecosystem
-maturity.
-</p>
+<div class="asset-links">
+<a href="https://aave.com/" target="_blank">Official</a>
+<a href="https://docs.aave.com/" target="_blank">Docs</a>
+<a href="https://www.tradingview.com/symbols/AAVEUSD/" target="_blank">TradingView</a>
 </div>
 
 </div>
+
+<div class="chart">
+
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+<div class="tradingview-widget-container__widget"></div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+{
+"autosize":true,
+"symbol":"COINBASE:AAVEUSD",
+"interval":"D",
+"timezone":"Etc/UTC",
+"theme":"dark",
+"style":"1",
+"locale":"en",
+"withdateranges":true,
+"allow_symbol_change":true,
+"save_image":false,
+"details":true,
+"support_host":"https://www.tradingview.com"
+}
+</script>
+
 </div>
 
+</div>
+
+</article>
+
+
+</div>
 
 </div>
 
@@ -1179,81 +1771,56 @@ maturity.
 
 <div class="container">
 
-<div class="section-label">
-Methodology
-</div>
+<div class="section-head">
 
-<h2>Research Methodology</h2>
+<div class="kicker">Methodology</div>
 
-<p class="section-intro">
-My research process combines qualitative analysis with structured
-data evaluation.
+<h2>Research process.</h2>
+
+<p class="section-description">
+The framework is designed to separate narrative from measurable
+variables and to make the assumptions behind each thesis explicit.
 </p>
 
-
-<div class="method">
-
-<div class="card">
-
-<h3>Fundamental Analysis</h3>
-
-<ul>
-<li>Protocol architecture</li>
-<li>Product and use cases</li>
-<li>Developer ecosystem</li>
-<li>Network adoption</li>
-<li>Competitive landscape</li>
-<li>Governance structure</li>
-</ul>
-
 </div>
 
 
-<div class="card">
+<div class="method-grid">
 
-<h3>Token & Market Analysis</h3>
-
-<ul>
-<li>Token supply</li>
-<li>Unlock schedules</li>
-<li>Emission mechanisms</li>
-<li>Liquidity</li>
-<li>Market structure</li>
-<li>Historical volatility</li>
-</ul>
-
+<div class="method-card">
+<div class="method-icon">🔎</div>
+<h3>Fundamental</h3>
+<p>
+Protocol architecture, product-market fit, competition and
+real-world adoption.
+</p>
 </div>
 
-
-<div class="card">
-
-<h3>Risk Framework</h3>
-
-<ul>
-<li>Technology risk</li>
-<li>Regulatory risk</li>
-<li>Liquidity risk</li>
-<li>Competition</li>
-<li>Token dilution</li>
-<li>Thesis invalidation</li>
-</ul>
-
+<div class="method-card">
+<div class="method-icon">📊</div>
+<h3>Market</h3>
+<p>
+Price structure, liquidity, volatility, market cycles and
+relative performance.
+</p>
 </div>
 
+<div class="method-card">
+<div class="method-icon">⛓️</div>
+<h3>On-chain</h3>
+<p>
+Network activity, TVL, users, transactions and ecosystem
+capital flows.
+</p>
+</div>
 
-<div class="card">
-
-<h3>Scenario Analysis</h3>
-
-<ul>
-<li>Bull scenario</li>
-<li>Base scenario</li>
-<li>Bear scenario</li>
-<li>Potential catalysts</li>
-<li>Key indicators</li>
-<li>Monitoring framework</li>
-</ul>
-
+<div class="method-card">
+<div class="method-icon">⚠️</div>
+<h3>Risk</h3>
+<p>
+Token unlocks, dilution, smart-contract risk, regulation and
+execution risk.
+</p>
 </div>
 
 </div>
@@ -1263,43 +1830,160 @@ data evaluation.
 </section>
 
 
-<!-- CONTACT -->
+<!-- SOURCES -->
 
-<section id="contact">
+<section id="sources">
 
 <div class="container">
 
-<div class="contact">
+<div class="section-head">
 
-<div class="section-label">
-Let's Talk
-</div>
+<div class="kicker">Research sources</div>
 
-<h2>Open to Remote Opportunities</h2>
+<h2>Primary sources first.</h2>
 
-<p>
-I am interested in remote opportunities related to crypto research,
-digital assets, financial analysis, data analysis, market research,
-research operations and blockchain-related roles.
+<p class="section-description">
+Research should be traceable. The portfolio prioritizes protocol
+documentation and first-party information, complemented by market
+and on-chain data providers.
 </p>
 
-<a class="email"
-href="mailto:gajel2858@gmail.com">
-gajel2858@gmail.com
-</a>
+</div>
 
-<div class="buttons" style="justify-content:center">
 
-<a class="btn btn-primary"
-href="Lucas_Gabriel_CV.pdf"
-target="_blank">
-View My CV
-</a>
+<div class="sources">
 
-<a class="btn"
-href="mailto:gajel2858@gmail.com">
-Send Email
+<div class="source">
+<h3>TradingView</h3>
+<p>
+Interactive market charts, price structure and technical
+visualization.
+</p>
+<a href="https://www.tradingview.com/" target="_blank">
+Open source →
 </a>
+</div>
+
+
+<div class="source">
+<h3>DefiLlama</h3>
+<p>
+DeFi ecosystem data including TVL, chains and protocol activity.
+</p>
+<a href="https://defillama.com/" target="_blank">
+Open source →
+</a>
+</div>
+
+
+<div class="source">
+<h3>CoinGecko</h3>
+<p>
+Market data, asset information and cryptocurrency market
+reference data.
+</p>
+<a href="https://www.coingecko.com/" target="_blank">
+Open source →
+</a>
+</div>
+
+
+<div class="source">
+<h3>Ethereum</h3>
+<p>
+Protocol documentation and technical ecosystem information.
+</p>
+<a href="https://ethereum.org/" target="_blank">
+Open source →
+</a>
+</div>
+
+
+<div class="source">
+<h3>Solana</h3>
+<p>
+Protocol documentation, architecture and ecosystem information.
+</p>
+<a href="https://solana.com/" target="_blank">
+Open source →
+</a>
+</div>
+
+
+<div class="source">
+<h3>Chainlink</h3>
+<p>
+Oracle infrastructure, CCIP and protocol documentation.
+</p>
+<a href="https://chain.link/" target="_blank">
+Open source →
+</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="kicker">About</div>
+
+<h2>From financial operations to digital assets.</h2>
+
+</div>
+
+
+<div class="about">
+
+<div class="about-card">
+
+<h3>Professional background</h3>
+
+<p>
+Experience in administrative and financial operations, including
+document verification, payment processes, contracts, reports,
+data organization and spreadsheet-based control systems.
+</p>
+
+<p>
+My transition toward digital assets combines operational discipline,
+economic research and an increasing focus on blockchain,
+cryptocurrency markets and data analysis.
+</p>
+
+</div>
+
+
+<div class="about-card">
+
+<h3>Core skills</h3>
+
+<div class="skills">
+
+<span class="skill">Crypto Research</span>
+<span class="skill">Digital Assets</span>
+<span class="skill">Macroeconomics</span>
+<span class="skill">Austrian Economics</span>
+<span class="skill">Excel</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Financial Operations</span>
+<span class="skill">Blockchain</span>
+<span class="skill">Market Research</span>
+<span class="skill">English</span>
+<span class="skill">Spanish</span>
+<span class="skill">Portuguese</span>
+<span class="skill">Technology</span>
+
+</div>
 
 </div>
 
@@ -1308,29 +1992,154 @@ Send Email
 </div>
 
 </section>
+
+
+<!-- DISCLAIMER -->
+
+<section>
+
+<div class="container">
+
+<div class="disclaimer">
+
+<strong>Research disclaimer:</strong>
+
+This website presents independent educational research and a framework
+for evaluating digital assets. References to catalysts, risks or
+medium/long-term scenarios are research hypotheses and monitoring
+criteria, not personalized investment recommendations, financial
+advice or guarantees of future performance. Cryptocurrency markets
+are highly volatile and involve substantial risk.
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
 
 
 <!-- FOOTER -->
 
 <footer>
 
-<div class="container footer-inner">
+<div class="container footer-grid">
 
 <div>
-<strong>Lucas Gabriel de Oliveira Silva</strong><br>
-Crypto & Digital Assets Research
+
+<div class="footer-name">
+Lucas Gabriel de Oliveira Silva
 </div>
 
-<div class="disclaimer">
-This website is an independent research portfolio for educational
-and professional purposes. Research presented here should not be
-interpreted as personalized investment advice or a recommendation
-to buy or sell any digital asset.
+<div class="footer-text">
+Crypto & Digital Assets Research · Portimão, Portugal
+</div>
+
+</div>
+
+
+<div class="social">
+
+<a href="mailto:gajel2858@gmail.com">
+Email
+</a>
+
+<a href="https://github.com/Luc-Gab/lucas-crypto-research" target="_blank">
+GitHub
+</a>
+
+<a href="#top">
+Back to top ↑
+</a>
+
 </div>
 
 </div>
 
 </footer>
+
+
+<script>
+
+/* FILTERS */
+
+const filters = document.querySelectorAll(".filter");
+const assets = document.querySelectorAll(".asset-card");
+
+filters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        filters.forEach(btn => btn.classList.remove("active"));
+
+        filter.classList.add("active");
+
+        const selected = filter.dataset.filter;
+
+        assets.forEach(asset => {
+
+            if(selected === "all" || asset.dataset.category === selected){
+                asset.style.display = "grid";
+            }else{
+                asset.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
+
+
+/* NAV ACTIVE SECTION */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const top = section.offsetTop - 150;
+
+        if(window.scrollY >= top){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.style.color = "";
+
+        if(link.getAttribute("href") === "#" + current){
+            link.style.color = "#ffffff";
+        }
+
+    });
+
+});
+
+
+/* SMALL INTERACTION */
+
+document.querySelectorAll(".asset-card").forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+        card.style.borderColor = "rgba(79,140,255,.35)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.borderColor = "";
+    });
+
+});
+
+</script>
 
 </body>
 </html>
